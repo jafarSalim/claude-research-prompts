@@ -1,0 +1,16 @@
+%%{init: {"theme":"base","fontFamily":"Inter","themeVariables":{"background":"#120E26","fontFamily":"Inter, sans-serif","fontSize":"17px","actorBkg":"#F72585","actorBorder":"#FFFFFF","actorTextColor":"#FFFFFF","actorLineColor":"#A69FD6","signalColor":"#FFD60A","signalTextColor":"#EDEBFF","labelBoxBkgColor":"#00F5D4","labelBoxBorderColor":"#00F5D4","labelTextColor":"#120E26","loopTextColor":"#00F5D4","noteBkgColor":"#3A86FF","noteTextColor":"#FFFFFF","noteBorderColor":"#FFFFFF","activationBkgColor":"#8338EC","sequenceNumberColor":"#120E26"}}}%%
+sequenceDiagram
+  autonumber
+  participant You as You (researcher)
+  participant API as Claude API
+  participant Cache as Prompt cache
+  Note over You,Cache: Paper FIRST: the same 12,000-token block opens every call
+  You->>API: [paper ✱cache] + Paper deconstructor
+  API->>Cache: write paper (1.25× input price, once)
+  API-->>You: quote-backed summary
+  loop 5 more prompts about the same paper
+    You->>API: [paper ✱cache] + Critical appraisal / Results interpreter / ...
+    Cache-->>API: read paper (0.05× input price)
+    API-->>You: answer
+  end
+  Note over You,Cache: Paper LAST: the instructions differ first, so the prefix never matches and every call pays full price

@@ -1,0 +1,3 @@
+Summarize this paper and tell me if it is good.
+
+{{PAPER}}

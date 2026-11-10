@@ -1,0 +1,58 @@
+%%{init: {"theme":"base","fontFamily":"Inter","themeVariables":{"background":"#120E26","primaryColor":"#1A1438","primaryTextColor":"#EDEBFF","lineColor":"#FFD60A","fontFamily":"Inter, sans-serif","fontSize":"18px","clusterBkg":"#1A1438","clusterBorder":"#352D5C","titleColor":"#EDEBFF","edgeLabelBackground":"#120E26"}}}%%
+flowchart LR
+  subgraph S1["01 DISCOVER"]
+    direction TB
+    LM(["Literature map"]) --> GF(["Gap finder"]) --> QS(["Question sharpener"])
+  end
+  subgraph S2["02 READ"]
+    direction TB
+    PD(["Paper deconstructor"]) --> CA(["Critical appraisal"]) --> PC(["Comparison matrix"])
+  end
+  subgraph S3["03 DESIGN"]
+    direction TB
+    MD(["Methodology designer"]) --> EP(["Experiment planner"]) --> DS(["Dataset & baseline scout"])
+  end
+  subgraph S4["04 ANALYZE"]
+    direction TB
+    RC(["Research code review"]) --> RI(["Results interpreter"]) --> FC(["Figure critic"])
+  end
+  subgraph S5["05 WRITE"]
+    direction TB
+    IB(["Introduction (CARS)"]) --> RW(["Related work"]) --> AW(["Abstract writer"])
+  end
+  subgraph S6["06 POLISH"]
+    direction TB
+    CE(["Clarity editor"]) --> CC(["Consistency checker"]) --> TK(["Title & keywords"])
+  end
+  subgraph S7["07 SUBMIT"]
+    direction TB
+    R2(["Reviewer 2 simulator"]) --> SC(["Submission checklist"]) --> CL(["Cover letter"])
+  end
+  subgraph S8["08 REVISE"]
+    direction TB
+    RP(["Revision planner"]) --> RR(["Response to reviewers"]) --> RT(["Rebuttal tone fixer"])
+  end
+  QS ==> PD
+  PC ==> MD
+  DS ==> RC
+  FC ==> IB
+  AW ==> CE
+  TK ==> R2
+  CL == "decision letter" ==> RP
+  RT -. "next round" .-> R2
+  classDef d fill:#F72585,stroke:#FFFFFF,color:#120E26,stroke-width:2px,font-weight:bold
+  classDef r fill:#FB5607,stroke:#FFFFFF,color:#120E26,stroke-width:2px,font-weight:bold
+  classDef s fill:#FFBE0B,stroke:#FFFFFF,color:#120E26,stroke-width:2px,font-weight:bold
+  classDef a fill:#8AC926,stroke:#FFFFFF,color:#120E26,stroke-width:2px,font-weight:bold
+  classDef w fill:#00F5D4,stroke:#FFFFFF,color:#120E26,stroke-width:2px,font-weight:bold
+  classDef p fill:#3A86FF,stroke:#FFFFFF,color:#FFFFFF,stroke-width:2px,font-weight:bold
+  classDef u fill:#8338EC,stroke:#FFFFFF,color:#FFFFFF,stroke-width:2px,font-weight:bold
+  classDef v fill:#FF99C8,stroke:#FFFFFF,color:#120E26,stroke-width:2px,font-weight:bold
+  class LM,GF,QS d
+  class PD,CA,PC r
+  class MD,EP,DS s
+  class RC,RI,FC a
+  class IB,RW,AW w
+  class CE,CC,TK p
+  class R2,SC,CL u
+  class RP,RR,RT v

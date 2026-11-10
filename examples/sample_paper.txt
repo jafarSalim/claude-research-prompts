@@ -1,0 +1,9 @@
+Title: Residual CNN Channel Estimation for OFDM Under Impulsive Noise (a short sample for trying the prompts)
+
+Abstract. Least-squares (LS) channel estimation degrades under impulsive noise. We train a residual CNN on simulated OFDM frames with Middleton Class-A noise and compare it with LS and LMMSE estimators.
+
+Method. 64 subcarriers, 16 pilots, QPSK. The network has 6 convolutional layers with skip connections and is trained with MSE loss for 40 epochs. Training uses SNR values from 0 to 30 dB.
+
+Results. At 15 dB SNR the CNN reaches an NMSE of -21.4 dB, compared with -14.1 dB for LS and -19.8 dB for LMMSE. Results are averaged over 2,000 test frames from one training run.
+
+Limitations. Only simulated channels were tested.
